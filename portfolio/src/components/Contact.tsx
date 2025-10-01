@@ -13,17 +13,15 @@ const Contact: React.FC = () => {
       return;
     }
 
-    const formEl = formRef.current;
-
     try {
       await sendForm(
-        "service_rg9ugar",   // ← replace with your service ID
-        "template_6mgijbl",  // ← replace with your template ID
-        formEl,
-        "AMDqnNV4YfB0Xg4kz"  // ← replace with your public key
+        "service_u6bkktu",     // <- your new Service ID
+        "template_ub5cm9c", // <- your new Template ID
+        formRef.current,
+        "AMDqnNV4YfB0Xg4kz"   // <- your Public Key
       );
       setStatus("✅ Message sent successfully!");
-      formEl.reset();
+      formRef.current.reset();
     } catch (err) {
       console.error("EmailJS error:", err);
       setStatus("❌ Failed to send message. Try again later.");
@@ -34,41 +32,13 @@ const Contact: React.FC = () => {
     <section id="contact" className="bg-[#0a0a23] text-white py-20 px-6 md:px-20">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
-        <p className="text-gray-300 mb-10">
-          Interested in working together or just want to say hi? Fill out the form below or reach me directly.
-        </p>
-
-        {/* Contact Form */}
         <form ref={formRef} onSubmit={sendEmail} className="grid gap-6">
-          <input
-            type="text"
-            name="from_name"
-            placeholder="Your Name"
-            required
-            className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"
-          />
-          <input
-            type="email"
-            name="from_email"
-            placeholder="Your Email"
-            required
-            className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows={5}
-            required
-            className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"
-          />
-          <button
-            type="submit"
-            className="px-6 py-3 bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition font-semibold"
-          >
-            Send Message
-          </button>
+          <input type="text" name="user_name" placeholder="Your Name" required className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"/>
+          <input type="email" name="user_email" placeholder="Your Email" required className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"/>
+          <input type="text" name="user_subject" placeholder="Subject" className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"/>
+          <textarea name="user_message" placeholder="Your Message" rows={5} required className="p-4 rounded-lg bg-[#111133] border border-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+          <button type="submit" className="px-6 py-3 bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition font-semibold">Send Message</button>
         </form>
-
         {status && <p className="mt-4 text-gray-300">{status}</p>}
 
         {/* Social Links */}
