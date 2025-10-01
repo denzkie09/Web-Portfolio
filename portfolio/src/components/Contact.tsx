@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
             Facebook
           </a>
           <a href="https://www.instagram.com/johndenlie/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
-            Instagram
+            Insta
           </a>
         </div>
       </div>
