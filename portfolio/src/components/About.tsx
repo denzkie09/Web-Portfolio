@@ -1,13 +1,15 @@
 import React from "react";
+import ProfileImage from "../assets/Denlie.jpg";
 
 const About: React.FC = () => {
   return (
     <section id="about" className="bg-[#111133] text-white py-20 px-6 md:px-20">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
         {/* Profile Image */}
         <div className="flex justify-center">
           <img
-            src="https://avatars.githubusercontent.com/u/9919?s=280&v=4" 
+            src={ProfileImage} 
             alt="Profile"
             className="w-60 h-60 rounded-full object-cover border-4 border-blue-600 shadow-lg"
           />
