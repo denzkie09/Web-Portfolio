@@ -30,10 +30,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="bg-[#0a0a23] text-white py-20 px-6 md:px-20"
-    >
+  
+    
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
 
@@ -116,7 +114,7 @@ const Contact: React.FC = () => {
           </a>
         </div>
       </div>
-    </section>
+    
   );
 };
 

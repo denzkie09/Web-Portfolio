@@ -3,7 +3,7 @@ import ProfileImage from "../assets/Denlie.jpg";
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="bg-[#111133] text-white py-20 px-6 md:px-20">
+
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
         {/* Profile Image */}
@@ -29,7 +29,7 @@ const About: React.FC = () => {
           </p>
         </div>
       </div>
-    </section>
+   
   );
 };
 
