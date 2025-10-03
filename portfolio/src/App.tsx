@@ -11,8 +11,8 @@ const App: React.FC = () => {
     <div className="bg-black min-h-screen font-sans">
       <Navbar />
       <Hero />
-      <Services />
       <About/>
+      <Services />
       <Contact/>
     </div>
   );
