@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { sendForm } from "@emailjs/browser";
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -15,10 +16,10 @@ const Contact: React.FC = () => {
 
     try {
       await sendForm(
-        "service_u6bkktu",     // your EmailJS Service ID
-        "template_ub5cm9c",   // your EmailJS Template ID
+        "service_u6bkktu",   // <- your Service ID
+        "template_ub5cm9c",  // <- your Template ID
         formRef.current,
-        "AMDqnNV4YfB0Xg4kz"   // your EmailJS Public Key
+        "AMDqnNV4YfB0Xg4kz"  // <- your Public Key
       );
       setStatus("✅ Message sent successfully!");
       formRef.current.reset();
@@ -29,10 +30,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-6 md:px-20"
-    >
+    <section id="contact" className="py-20 px-6 md:px-20">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
         <p className="text-gray-300 mb-10">
@@ -78,6 +76,42 @@ const Contact: React.FC = () => {
         </form>
 
         {status && <p className="mt-4 text-gray-300">{status}</p>}
+
+        {/* Social Icons */}
+        <div className="mt-10 flex justify-center gap-6 text-gray-400 text-2xl">
+          <a
+            href="https://github.com/denzkie09/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/pahang-john-denlie-t-163883301/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://www.facebook.com/sa3lowdota"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://www.instagram.com/johndenlie/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white"
+          >
+            <FaInstagram />
+          </a>
+        </div>
       </div>
     </section>
   );
