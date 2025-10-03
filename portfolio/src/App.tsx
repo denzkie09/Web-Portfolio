@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Services from "./components/Services";
 import About from "./components/About";     
 import Contact from "./components/Contact"; 
+import Projects from "./components/Projects";
 import bg from "./assets/BG.jpg"; 
 
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Navbar />
         <About />
         <Services />
+        <Projects/>
         <Contact />
       </div>
     </div>
