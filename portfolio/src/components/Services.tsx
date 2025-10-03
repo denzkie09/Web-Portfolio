@@ -4,7 +4,7 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-20 px-6 md:px-20 border-b border-gray-700"
+      className="py-20 px-6 md:px-20"
     >
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-6">Services</h2>
