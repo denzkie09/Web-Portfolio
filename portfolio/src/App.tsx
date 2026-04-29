@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
 import Services from "./components/Services";
-import About from "./components/About";     
-import Contact from "./components/Contact"; 
 import Projects from "./components/Projects";
-import bg from "./assets/BG.jpg"; 
+import Contact from "./components/Contact";
+import bg from "./assets/BG.jpg";
 
 const App: React.FC = () => {
   return (
@@ -12,12 +14,13 @@ const App: React.FC = () => {
       className="min-h-screen text-white bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${bg})` }}
     >
-      {/* Semi-transparent overlay so the background image is visible */}
       <div className="bg-black bg-opacity-70 min-h-screen font-sans">
         <Navbar />
+        <Hero />
         <About />
+        <Skills />
+        <Projects />
         <Services />
-        <Projects/>
         <Contact />
       </div>
     </div>
