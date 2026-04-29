@@ -1,5 +1,31 @@
 import React from "react";
-import ProfileImage from "../assets/Denlie.jpg";
+
+const timeline = [
+  {
+    year: "2025",
+    title: "BS Computer Engineering",
+    subtitle: "Graduated · Cebu, Philippines",
+    current: true,
+  },
+  {
+    year: "2024",
+    title: "Portfolio & Blockchain Projects",
+    subtitle: "Built 3 full-stack projects using React, Next.js, Solidity",
+    current: false,
+  },
+  {
+    year: "2023",
+    title: "Deepened Frontend Skills",
+    subtitle: "TypeScript, Tailwind CSS, REST APIs, Git workflow",
+    current: false,
+  },
+  {
+    year: "2021",
+    title: "Started Computer Engineering",
+    subtitle: "Began learning web dev alongside coursework",
+    current: false,
+  },
+];
 
 const highlights = [
   { label: "Degree", value: "BS Computer Engineering" },
@@ -12,19 +38,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-20 px-6 md:px-20">
       <div className="max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-
-          {/* Image with decorative frame */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-blue-600/20 blur-sm" />
-              <img
-                src={ProfileImage}
-                alt="John Denlie"
-                className="relative w-64 h-72 md:w-72 md:h-80 rounded-2xl object-cover border border-blue-600/40"
-              />
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 gap-16 items-start">
 
           {/* Bio */}
           <div>
@@ -63,6 +77,40 @@ const About: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Timeline */}
+          <div>
+            <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-6">
+              My journey
+            </p>
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-3 top-0 bottom-0 w-px bg-gray-700" />
+
+              <div className="flex flex-col gap-8">
+                {timeline.map((item, i) => (
+                  <div key={i} className="flex gap-6 items-start pl-2">
+                    {/* Dot */}
+                    <div className={`relative z-10 w-6 h-6 rounded-full border-2 flex-shrink-0 flex items-center justify-center mt-0.5 ${
+                      item.current
+                        ? "border-blue-500 bg-blue-600"
+                        : "border-gray-600 bg-[#08081d]"
+                    }`}>
+                      {item.current && (
+                        <span className="w-2 h-2 rounded-full bg-white" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-blue-400 text-xs font-semibold mb-1">{item.year}</p>
+                      <p className="text-white font-medium text-sm">{item.title}</p>
+                      <p className="text-gray-500 text-xs mt-0.5">{item.subtitle}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

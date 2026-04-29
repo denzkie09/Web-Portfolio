@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProfileImage from "../assets/Denlie.jpg";
 
 const roles = ["Frontend Developer", "React Engineer", "UI/UX Enthusiast", "Next.js Developer"];
 
@@ -93,7 +94,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 rounded-full border-2 border-blue-500/30 scale-110 animate-pulse" />
             <div className="absolute inset-0 rounded-full border border-blue-400/20 scale-125" />
             <img
-              src="/src/assets/Denlie.jpg"
+              src={ProfileImage}
               alt="John Denlie"
               className="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover border-4 border-blue-600 relative z-10"
             />
