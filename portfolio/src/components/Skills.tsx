@@ -4,7 +4,7 @@ import {
 } from "react-icons/fa";
 import {
   SiNextdotjs, SiTypescript, SiJavascript, SiTailwindcss,
-  SiHtml5, SiCss3, SiMongodb, SiPostgresql, SiFirebase,
+  SiHtml5, SiCss, SiMongodb, SiPostgresql, SiFirebase,
   SiSolidity, SiEthereum, SiGithub, SiVite, SiFramer,
 } from "react-icons/si";
 
@@ -18,7 +18,7 @@ const skills = [
   { name: "JavaScript",  icon: SiJavascript,  tier: "proficient", color: "#F7DF1E" },
   { name: "Tailwind",    icon: SiTailwindcss, tier: "proficient", color: "#38BDF8" },
   { name: "HTML5",       icon: SiHtml5,       tier: "proficient", color: "#E34F26" },
-  { name: "CSS3",        icon: SiCss3,        tier: "proficient", color: "#1572B6" },
+  { name: "CSS3",        icon: SiCss,        tier: "proficient", color: "#1572B6" },
   // Familiar
   { name: "Node.js",     icon: FaNodeJs,      tier: "familiar",   color: "#68A063" },
   { name: "MongoDB",     icon: SiMongodb,     tier: "familiar",   color: "#47A248" },
