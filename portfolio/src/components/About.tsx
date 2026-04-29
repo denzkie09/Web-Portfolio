@@ -2,7 +2,7 @@ import React from "react";
 
 const timeline = [
   {
-    year: "2025",
+    year: "2026",
     title: "BS Computer Engineering",
     subtitle: "Graduated · Cebu, Philippines",
     current: true,

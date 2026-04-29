@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
               <p className="text-gray-500 text-sm">Technologies</p>
             </div>
             <div className="border-l border-gray-700 pl-8">
-              <p className="text-2xl font-bold text-white">2025</p>
+              <p className="text-2xl font-bold text-white">2026</p>
               <p className="text-gray-500 text-sm">Fresh graduate</p>
             </div>
           </div>
