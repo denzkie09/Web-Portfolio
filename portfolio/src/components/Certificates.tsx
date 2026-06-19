@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaTimes, FaExternalLinkAlt, FaGraduationCap, FaCertificate } from "react-icons/fa";
 import OJT from "../assets/Certificates/OJT.jpg";
-import Eth from "../assets/Certificates/Eth.jpg";
+import Eth from "../assets/Certificates/ETH.jpg";
 
 
 type Category = "all" | "academic" | "online";
