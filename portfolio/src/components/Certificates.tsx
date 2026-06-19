@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaTimes, FaExternalLinkAlt, FaGraduationCap, FaCertificate } from "react-icons/fa";
 import OJT from "../assets/Certificates/OJT.jpg";
+import Eth from "../assets/Certificates/Eth.jpg";
+
 
 type Category = "all" | "academic" | "online";
 
@@ -30,6 +32,14 @@ const certificates: Certificate[] = [
     category: "academic",
     image: OJT,
     description: "300 Hours of hands-on experience in IT support, network maintenance, and system administration.",
+  },
+  {
+    title: "Certificate of Completion:Infinite Hack: Ethereum and Solidity Development",
+    issuer: "Christine Erispe(Core,Ethereum Philippines)",
+    date: "2025",
+    category: "academic",
+    image: Eth,
+    description: "5-day intensive workshop on Ethereum blockchain development, smart contracts, and decentralized applications (DApps).",
   },
 ];
 
