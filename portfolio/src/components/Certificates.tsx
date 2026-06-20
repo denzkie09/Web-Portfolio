@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaTimes, FaExternalLinkAlt, FaGraduationCap, FaCertificate } from "react-icons/fa";
 import OJT from "../assets/Certificates/OJT.jpg";
 import Eth from "../assets/Certificates/ETH.jpg";
+import Diploma from "../assets/Certificates/Diploma.png";
 
 
 type Category = "all" | "academic" | "online";
@@ -22,7 +23,7 @@ const certificates: Certificate[] = [
     issuer: "University of Cebu",
     date: "2026",
     category: "academic",
-    image: "",        
+    image: Diploma,        
     description: "4-year degree covering software engineering, computer architecture, and web development.",
   },
   {
