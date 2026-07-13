@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import ticketLogo from "../assets/ticket.jpg";
-import realEstateLogo from "../assets/realestate.jpg";
-import portfolioLogo from "../assets/portfolio.jpg";
+import ticketLogo from "../assets/ticketchain.png";
+import realEstateLogo from "../assets/blockestate.png";
+import portfolioLogo from "../assets/JDP.png";
 
 type Category = "all" | "frontend" | "blockchain" | "fullstack";
 
