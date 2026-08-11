@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LogoLoop from "./LogoLoop";
 import {
   FaReact, FaNodeJs, FaGitAlt, FaFigma, FaDocker,
 } from "react-icons/fa";
@@ -18,7 +19,7 @@ const skills = [
   { name: "JavaScript",  icon: SiJavascript,  tier: "proficient", color: "#F7DF1E" },
   { name: "Tailwind",    icon: SiTailwindcss, tier: "proficient", color: "#38BDF8" },
   { name: "HTML5",       icon: SiHtml5,       tier: "proficient", color: "#E34F26" },
-  { name: "CSS3",        icon: SiCss,        tier: "proficient", color: "#1572B6" },
+  { name: "CSS3",        icon: SiCss,         tier: "proficient", color: "#1572B6" },
   // Familiar
   { name: "Node.js",     icon: FaNodeJs,      tier: "familiar",   color: "#68A063" },
   { name: "MongoDB",     icon: SiMongodb,     tier: "familiar",   color: "#47A248" },
@@ -34,6 +35,21 @@ const skills = [
   { name: "Docker",      icon: FaDocker,      tier: "learning",   color: "#2496ED" },
   { name: "Framer",      icon: SiFramer,      tier: "learning",   color: "#ffffff" },
 ];
+
+// All skills in one scrolling row
+const row1 = skills;
+
+const toLogoItem = (skill: typeof skills[0]) => ({
+  node: (
+    <div className="flex flex-col items-center gap-1.5 px-1">
+      <skill.icon style={{ color: skill.color, fontSize: "2rem" }} />
+      <span style={{ color: "#9ca3af", fontSize: "11px", whiteSpace: "nowrap" }}>
+        {skill.name}
+      </span>
+    </div>
+  ),
+  title: skill.name,
+});
 
 const tierLabel: Record<string, string> = {
   proficient: "Proficient",
@@ -62,8 +78,9 @@ const Skills: React.FC = () => {
     : skills.filter((s) => s.tier === active);
 
   return (
-    <section id="skills" className="py-20 px-6 md:px-20">
-      <div className="max-w-5xl mx-auto">
+    <section id="skills" className="py-20">
+      {/* Header */}
+      <div className="max-w-5xl mx-auto px-6 md:px-20">
         <div className="text-center mb-12">
           <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">
             What I work with
@@ -73,8 +90,26 @@ const Skills: React.FC = () => {
             Tools and technologies I've used to build real projects.
           </p>
         </div>
+      </div>
 
-        {/* Filter pills */}
+      {/* Scrolling logo rows — full width, no side padding */}
+      <div className="w-full overflow-hidden mb-14" style={{ height: "80px" }}>
+        <LogoLoop
+          logos={row1.map(toLogoItem)}
+          speed={60}
+          direction="left"
+          logoHeight={32}
+          gap={48}
+          hoverSpeed={0}
+          scaleOnHover
+          fadeOut
+          fadeOutColor="transparent"
+          ariaLabel="Tech stack"
+        />
+      </div>
+
+      {/* Filter pills + grid — back to padded container */}
+      <div className="max-w-5xl mx-auto px-6 md:px-20">
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {filters.map((f) => (
             <button
@@ -91,7 +126,6 @@ const Skills: React.FC = () => {
           ))}
         </div>
 
-        {/* Skills grid */}
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
           {visible.map((skill, i) => {
             const Icon = skill.icon;
@@ -102,9 +136,7 @@ const Skills: React.FC = () => {
               >
                 <Icon style={{ color: skill.color }} className="text-3xl group-hover:scale-110 transition-transform" />
                 <p className="text-gray-300 text-xs text-center font-medium">{skill.name}</p>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${tierColor[skill.tier]}`}
-                >
+                <span className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${tierColor[skill.tier]}`}>
                   {tierLabel[skill.tier]}
                 </span>
               </div>
