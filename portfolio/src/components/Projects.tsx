@@ -3,6 +3,7 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import ticketLogo from "../assets/ticketchain.png";
 import realEstateLogo from "../assets/blockestate.png";
 import portfolioLogo from "../assets/JDP.png";
+import ElectricBorder from "./ElectricBorder";
 
 type Category = "all" | "frontend" | "blockchain" | "fullstack";
 
@@ -88,9 +89,16 @@ const Projects: React.FC = () => {
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visible.map((project, index) => (
-            <div
+            <ElectricBorder
               key={index}
-              className="group bg-[#111133] rounded-xl border border-gray-700/50 overflow-hidden hover:border-blue-500/50 transition-all hover:-translate-y-1 flex flex-col"
+              color="#3b82f6"
+              speed={0.8}
+              chaos={0.08}
+              borderRadius={12}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+            <div
+              className="group bg-[#111133] rounded-xl overflow-hidden transition-all hover:-translate-y-1 flex flex-col"
             >
               {/* Cover image */}
               <div className="relative h-44 overflow-hidden bg-[#0a0a2a]">
@@ -151,6 +159,7 @@ const Projects: React.FC = () => {
                 </div>
               </div>
             </div>
+            </ElectricBorder>
           ))}
         </div>
 
@@ -171,3 +180,4 @@ const Projects: React.FC = () => {
 };
 
 export default Projects;
+

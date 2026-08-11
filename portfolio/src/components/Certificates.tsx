@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FaTimes, FaExternalLinkAlt, FaGraduationCap, FaCertificate } from "react-icons/fa";
+import ElectricBorder from "./ElectricBorder";
 import OJT from "../assets/Certificates/OJT.jpg";
 import Eth from "../assets/Certificates/ETH.jpg";
 import Diploma from "../assets/Certificates/Diploma.png";
-
 
 type Category = "all" | "academic" | "online";
 
@@ -12,7 +12,7 @@ interface Certificate {
   issuer: string;
   date: string;
   category: "academic" | "online";
-  image: string;        
+  image: string;
   credentialUrl?: string;
   description?: string;
 }
@@ -23,11 +23,11 @@ const certificates: Certificate[] = [
     issuer: "University of Cebu",
     date: "2026",
     category: "academic",
-    image: Diploma,        
+    image: Diploma,
     description: "4-year degree covering software engineering, computer architecture, and web development.",
   },
   {
-    title: "Certificate of Completion:IT Internship Program",
+    title: "Certificate of Completion: IT Internship Program",
     issuer: "Savoy Hotel Mactan Newtown",
     date: "2024",
     category: "academic",
@@ -35,10 +35,10 @@ const certificates: Certificate[] = [
     description: "300 Hours of hands-on experience in IT support, network maintenance, and system administration.",
   },
   {
-    title: "Certificate of Completion:Infinite Hack: Ethereum and Solidity Development",
-    issuer: "Christine Erispe(Core,Ethereum Philippines)",
+    title: "Certificate of Completion: Infinite Hack: Ethereum and Solidity Development",
+    issuer: "Christine Erispe (Core, Ethereum Philippines)",
     date: "2025",
-    category: "academic",
+    category: "online",
     image: Eth,
     description: "5-day intensive workshop on Ethereum blockchain development, smart contracts, and decentralized applications (DApps).",
   },
@@ -118,46 +118,54 @@ const Certificates: React.FC = () => {
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {visible.map((cert, i) => (
-              <div
+              <ElectricBorder
                 key={i}
-                onClick={() => setSelected(cert)}
-                className="group bg-[#111133] border border-gray-700/50 rounded-xl overflow-hidden hover:border-blue-500/50 hover:-translate-y-1 transition-all cursor-pointer"
+                color={cert.category === "academic" ? "#3b82f6" : "#a855f7"}
+                speed={0.7}
+                chaos={0.07}
+                borderRadius={12}
+                style={{ cursor: "pointer" }}
               >
-                {/* Certificate preview */}
-                <div className="relative h-44 overflow-hidden bg-[#0a0a2a]">
-                  {cert.image ? (
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                  ) : (
-                    <PlaceholderImage title={cert.title} />
-                  )}
-                  {/* View overlay */}
-                  <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                      Click to view
+                <div
+                  onClick={() => setSelected(cert)}
+                  className="group bg-[#111133] rounded-xl overflow-hidden hover:-translate-y-1 transition-all cursor-pointer"
+                >
+                  {/* Certificate preview */}
+                  <div className="relative h-44 overflow-hidden bg-[#0a0a2a]">
+                    {cert.image ? (
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                    ) : (
+                      <PlaceholderImage title={cert.title} />
+                    )}
+                    {/* View overlay */}
+                    <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/10 transition-colors flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                        Click to view
+                      </span>
+                    </div>
+                    {/* Category badge */}
+                    <span className={`absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-md border capitalize ${categoryColors[cert.category]}`}>
+                      {cert.category === "online" ? "Online Course" : "Academic"}
                     </span>
                   </div>
-                  {/* Category badge */}
-                  <span className={`absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-md border capitalize ${categoryColors[cert.category]}`}>
-                    {cert.category === "online" ? "Online Course" : "Academic"}
-                  </span>
-                </div>
 
-                {/* Info */}
-                <div className="p-5">
-                  <h3 className="text-white font-semibold text-sm leading-snug mb-1 line-clamp-2">
-                    {cert.title}
-                  </h3>
-                  <p className="text-blue-400 text-xs font-medium mb-1">{cert.issuer}</p>
-                  <p className="text-gray-500 text-xs">{cert.date}</p>
-                  {cert.description && (
-                    <p className="text-gray-500 text-xs mt-2 line-clamp-2">{cert.description}</p>
-                  )}
+                  {/* Info */}
+                  <div className="p-5">
+                    <h3 className="text-white font-semibold text-sm leading-snug mb-1 line-clamp-2">
+                      {cert.title}
+                    </h3>
+                    <p className="text-blue-400 text-xs font-medium mb-1">{cert.issuer}</p>
+                    <p className="text-gray-500 text-xs">{cert.date}</p>
+                    {cert.description && (
+                      <p className="text-gray-500 text-xs mt-2 line-clamp-2">{cert.description}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </ElectricBorder>
             ))}
           </div>
         )}
